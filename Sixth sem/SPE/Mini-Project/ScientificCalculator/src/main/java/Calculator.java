@@ -11,7 +11,7 @@ public class Calculator {
         int option = sc.nextInt();
 
         Calculator obj = new Calculator();
-
+        //user options
         if(option==1)
         {
             //Takes only numbers >= 0
