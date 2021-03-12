@@ -8,7 +8,13 @@ public class Calculator {
         Scanner sc = new Scanner(System.in);
 
         System.out.print("User menu option: \n 1.Square root function \n 2. Factorial function \n 3. Natural Logarithm(base e) \n 4. Power function \n");
-        int option = sc.nextInt();
+        int option = 0;
+        try{
+            option = sc.nextInt();
+        } catch (InputMismatchException error) {
+            //wrong input
+            System.out.print("Wrong input for selecting the options. Kindly choose from 1,2,3,4 \n");
+        }
 
         Calculator obj = new Calculator();
         //user options
@@ -53,11 +59,10 @@ public class Calculator {
             double exp = sc.nextDouble();
             System.out.println("Power of " + num + " is " + obj.power(num, exp));
         }
-        else
-        {
-            //wrong input
+        else{
             System.out.print("Wrong input for selecting the options. Kindly choose from 1,2,3,4 \n");
         }
+
     }
 
     public int factorial(int n)
