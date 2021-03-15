@@ -15,33 +15,51 @@
                 <!-- Building an executable jar -->
 
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>2.4</version>
-                <configuration>
-                    <archive>
-                        <manifest>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                        <configuration>
+                            <archive>
+                                    <manifest>
 
-                            <!-- give full qualified name of your main class-->
-                            <mainClass>calculator.Calculator</mainClass>
+                                    <!-- give full qualified name of your main class-->
+                                             <mainClass>calculator.Calculator</mainClass>
 
-                        </manifest>
-                    </archive>
-                </configuration>
+                                    </manifest>
+                            </archive>
+                            <descriptorRefs>
+                                    <descriptorRef>jar-with-dependencies</descriptorRef>
+                            </descriptorRefs>  
+                        </configuration>
+                </execution>   
             </plugin>
         </plugins>
     </build>
     <dependencies>
         <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter</artifactId>
-            <version>RELEASE</version>
-            <scope>test</scope>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>2.14.0</version>
         </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>2.14.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>2.14.0</version>
+        </dependency>     
     </dependencies>
 
     <properties>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
 
 </project>
